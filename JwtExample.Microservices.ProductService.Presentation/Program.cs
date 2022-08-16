@@ -1,22 +1,38 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+RegisterServices(services: builder.Services);
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+Configure(app);
 
 app.Run();
+
+void RegisterServices(IServiceCollection services)
+{
+    // Logging
+    services.AddLoggingConfiguration(hostBuilder: builder.Host);
+
+    // Setting DBContext
+    services.AddDatabaseConfiguration(configuration: builder.Configuration);
+
+    // Swagger
+    services.AddSwaggerConfiguration();
+
+    // .NET Native DI Abstraction
+    services.AddServices();
+
+    // MediatR
+    services.AddMediatRConfiguration();
+
+    services.AddControllers();
+}
+
+void Configure(WebApplication app)
+{
+    app.UseHttpsRedirection();
+
+    app.MapControllers();
+
+    app.UseSwaggerSetup();
+}
