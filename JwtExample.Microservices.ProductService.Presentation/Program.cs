@@ -10,6 +10,8 @@ app.Run();
 
 void RegisterServices(IServiceCollection services)
 {
+    services.AddCustomJwtAuthentication();
+
     // Logging
     services.AddLoggingConfiguration(hostBuilder: builder.Host);
 
@@ -31,6 +33,10 @@ void RegisterServices(IServiceCollection services)
 void Configure(WebApplication app)
 {
     app.UseHttpsRedirection();
+
+    app.UseAuthentication();
+
+    app.UseAuthorization();
 
     app.MapControllers();
 

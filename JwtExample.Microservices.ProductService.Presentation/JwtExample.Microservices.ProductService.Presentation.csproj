@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JwtExample.Microservices.ProductService.Application\JwtExample.Microservices.ProductService.Application.csproj" />
     <ProjectReference Include="..\JwtExample.Microservices.ProductService.Infra\JwtExample.Microservices.ProductService.Infra.csproj" />
+    <ProjectReference Include="..\JwtExample.Shared.Authentication\JwtExample.Shared.Authentication.csproj" />
   </ItemGroup>
 
 </Project>

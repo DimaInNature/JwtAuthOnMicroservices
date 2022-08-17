@@ -22,11 +22,11 @@ public class ProductController : ControllerBase
     /// </remarks>
     /// <returns>Return all products.</returns>
     /// <response code="200">Products list.</response>
-    //[Authorize]
     [Tags(tags: "Get")]
     [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
     [HttpGet]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<ProductEntity>>> GetList()
     {
         var result = await _productService.GetAllAsync();
@@ -47,11 +47,11 @@ public class ProductController : ControllerBase
     /// <returns>Product.</returns>
     /// <response code="200">Product.</response>
     /// <response code="404">If the product was not found.</response>
-    //[Authorize]
     [Tags(tags: "Get")]
     [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
     [HttpGet(template: "{id}")]
+    [Authorize]
     public async Task<ActionResult<ProductEntity>> Get(Guid id)
     {
         var result = await _productService.GetAsync(id);
@@ -77,6 +77,7 @@ public class ProductController : ControllerBase
     [ProducesResponseType(statusCode: StatusCodes.Status201Created)]
     [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<ProductEntity>> Create(
         [FromBody] ProductEntity product)
     {
@@ -105,6 +106,7 @@ public class ProductController : ControllerBase
     [ProducesResponseType(statusCode: StatusCodes.Status204NoContent)]
     [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
     [HttpPut]
+    [Authorize]
     public async Task<ActionResult> Update(
         [FromBody] ProductEntity product)
     {
@@ -128,6 +130,7 @@ public class ProductController : ControllerBase
     [ProducesResponseType(statusCode: StatusCodes.Status204NoContent)]
     [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
     [HttpDelete(template: "{id}")]
+    [Authorize]
     public async Task<ActionResult> Delete(Guid id)
     {
         await _productService.DeleteAsync(id);
