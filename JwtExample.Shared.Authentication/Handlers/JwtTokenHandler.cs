@@ -37,7 +37,7 @@ public class JwtTokenHandler
         ClaimsIdentity ClaimsIdentity = new(claims: new List<Claim>()
         {
             new(type: JwtRegisteredClaimNames.Name, value: authenticationRequest.Username),
-            new(type: ClaimTypes.Role, value: userAccount.Role)
+            new(type: "Role", value: userAccount.Role)
         });
 
         SigningCredentials signingCredentials = new(

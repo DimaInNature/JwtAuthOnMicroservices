@@ -28,6 +28,9 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
       }
     }
   ],
