@@ -6,6 +6,8 @@ public class Startup
     {
         services.AddOcelot()
             .AddCacheManager(settings => settings.WithDictionaryHandle());
+
+        services.AddCustomJwtAuthentication();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -13,6 +15,10 @@ public class Startup
         app.UseHttpsRedirection();
 
         app.UseRouting();
+
+        app.UseAuthentication();
+
+        app.UseAuthorization();
 
         app.UseOcelot();
     }

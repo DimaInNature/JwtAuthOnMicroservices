@@ -12,6 +12,23 @@
         }
       ],
       "DownstreamPathTemplate": "/Account"
+    },
+    // ProductService
+    {
+      "UpstreamPathTemplate": "/Product",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7248
+        }
+      ],
+      "DownstreamPathTemplate": "/Product",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {
