@@ -111,6 +111,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Shared.Domain", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Gateway.Desktop", "JwtExample.Gateway.Desktop\JwtExample.Gateway.Desktop.csproj", "{4B67B895-DF7E-40BB-A3EE-5650941E5491}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - Authentication", "4.3 - Authentication", "{E9C30BEA-DF50-489A-B60C-080744A7FAA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtExample.Shared.Authentication", "JwtExample.Shared.Authentication\JwtExample.Shared.Authentication.csproj", "{B995CDDD-D8AA-44D8-9F71-6A388EF17517}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -213,6 +217,10 @@ Global
 		{4B67B895-DF7E-40BB-A3EE-5650941E5491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B67B895-DF7E-40BB-A3EE-5650941E5491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B67B895-DF7E-40BB-A3EE-5650941E5491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B995CDDD-D8AA-44D8-9F71-6A388EF17517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B995CDDD-D8AA-44D8-9F71-6A388EF17517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B995CDDD-D8AA-44D8-9F71-6A388EF17517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B995CDDD-D8AA-44D8-9F71-6A388EF17517}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,6 +279,8 @@ Global
 		{29047F97-DEC5-42DB-92DD-DD0C3A5D13A1} = {F0349FE8-253B-4230-B8D3-26AACF71B32A}
 		{4B93EDDF-9F31-4693-93A6-BF5246CC2EF3} = {29047F97-DEC5-42DB-92DD-DD0C3A5D13A1}
 		{4B67B895-DF7E-40BB-A3EE-5650941E5491} = {77313657-5C0A-479A-B490-FA11450C07C4}
+		{E9C30BEA-DF50-489A-B60C-080744A7FAA4} = {F0349FE8-253B-4230-B8D3-26AACF71B32A}
+		{B995CDDD-D8AA-44D8-9F71-6A388EF17517} = {E9C30BEA-DF50-489A-B60C-080744A7FAA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D65BFBC-AA66-4696-8CF7-73607689D03B}
