@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\JwtExample.Microservices.AuthService.Infra\JwtExample.Microservices.AuthService.Infra.csproj" />
+    <ProjectReference Include="..\JwtExample.Shared.Authentication\JwtExample.Shared.Authentication.csproj" />
   </ItemGroup>
 
 </Project>

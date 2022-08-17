@@ -1,22 +1,22 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+RegisterServices(services: builder.Services);
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+Configure(app);
 
 app.Run();
+
+void RegisterServices(IServiceCollection services)
+{
+    // .NET Native DI Abstraction
+    services.AddServices();
+
+    services.AddControllers();
+}
+
+void Configure(WebApplication app)
+{
+    app.MapControllers();
+}
