@@ -2,13 +2,13 @@
   "profiles": {
     "JwtExample.Microservices.AuthService.Presentation": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchBrowser": false,
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7243;http://localhost:5210"
+      "applicationUrl": "https://localhost:7243"
     },
     "Docker": {
       "commandName": "Docker",

@@ -13,8 +13,8 @@ public class AccountController : ControllerBase
 	}
 
 	[HttpPost]
-	public ActionResult<AuthenticationResponse?> Authenticate(
-		[FromBody] AuthenticationRequest authenticationRequest)
+	public ActionResult<LoginAuthenticationResponse?> Authenticate(
+		[FromBody] LoginAuthenticationRequest authenticationRequest)
 	{
 		var response = _jwtTokenHandler.GenerateJwtToken(authenticationRequest);
 

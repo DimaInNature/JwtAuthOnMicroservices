@@ -1,1 +1,1 @@
-﻿
+﻿global using JwtExample.Microservices.AuthService.Domain.Core.Models.Configuration.Authentication;

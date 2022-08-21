@@ -2,6 +2,8 @@
 
 public static class CustomJwtAuthenticationExtension
 {
+    public const string KEY = "DontUseItInProduction";
+
     public static void AddCustomJwtAuthentication(
         this IServiceCollection services)
     {
@@ -21,7 +23,7 @@ public static class CustomJwtAuthenticationExtension
                 ValidateIssuerSigningKey = true,
                 ValidateIssuer = false,
                 ValidateAudience = false,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(s: JwtTokenHandler.KEY))
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(s: KEY))
             };
         });
     }
