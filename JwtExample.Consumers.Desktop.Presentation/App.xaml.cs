@@ -1,15 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿namespace JwtExample.Consumers.Desktop.Presentation;
 
-namespace JwtExample.Consumers.Desktop.Presentation;
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
-public partial class App : Application
+public partial class App : ThisApplication
 {
+    public IServiceProvider? ServiceProvider { get; private set; }
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        ServiceCollection services = new();
+
+        ConfigureServices(services);
+
+        ServiceProvider = services.BuildServiceProvider();
+
+        new LoginView().Show();
+    }
+
+    private void ConfigureServices(IServiceCollection services)
+    {
+        // Configure IConfiguration (^_^)
+        services.AddConfigurationFrom(path: "appsettings.json");
+
+        // .NET Native DI Abstraction
+        services.AddServices();
+
+        // Add ViewModels
+        services.AddViewModelsConfiguration();
+
+        // MediatR
+        services.AddMediatRConfiguration();
+
+        services.AddHttpClientsConfiguration();
+    }
 }

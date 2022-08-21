@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region PasswordBox-->
+
+    <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox" />
+
+    <!--#endregion-->
+
+    <!--#region TextBox-->
+
+    <Style x:Key="TextBoxStyle" TargetType="TextBox" />
+
+    <!--#endregion-->
+
+</ResourceDictionary>

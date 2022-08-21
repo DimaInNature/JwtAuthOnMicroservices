@@ -1,1 +1,16 @@
-﻿
+﻿global using JwtExample.Consumers.Desktop.Application.Interfaces;
+global using JwtExample.Consumers.Desktop.Application.Services;
+global using JwtExample.Consumers.Desktop.Domain.Commands.Products;
+global using JwtExample.Consumers.Desktop.Domain.Commands.Users;
+global using JwtExample.Consumers.Desktop.Domain.Core.Models;
+global using JwtExample.Consumers.Desktop.Domain.Core.Models.Configuration;
+global using JwtExample.Consumers.Desktop.Domain.Core.Models.Responses;
+global using JwtExample.Consumers.Desktop.Domain.Queries.Authorization;
+global using JwtExample.Consumers.Desktop.Domain.Queries.Products;
+global using JwtExample.Consumers.Desktop.Domain.Queries.Users;
+global using JwtExample.Consumers.Desktop.Infra.IoC.MediatR.Profiles;
+global using MediatR;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.IO;
+global using System.Reflection;

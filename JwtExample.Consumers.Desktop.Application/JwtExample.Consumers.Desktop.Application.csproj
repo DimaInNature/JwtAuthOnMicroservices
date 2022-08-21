@@ -1,14 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JwtExample.Consumers.Desktop.Domain.Core\JwtExample.Consumers.Desktop.Domain.Core.csproj" />
+    <ProjectReference Include="..\JwtExample.Consumers.Desktop.Domain\JwtExample.Consumers.Desktop.Domain.csproj" />
   </ItemGroup>
 
 </Project>

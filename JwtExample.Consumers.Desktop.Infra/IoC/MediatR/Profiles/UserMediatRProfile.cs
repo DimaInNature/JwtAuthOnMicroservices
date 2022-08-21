@@ -1,0 +1,32 @@
+﻿namespace JwtExample.Consumers.Desktop.Infra.IoC.MediatR.Profiles;
+
+public static class UserMediatRProfile
+{
+    public static void AddUserMediatRProfile(this IServiceCollection services)
+    {
+        ArgumentNullException.ThrowIfNull(argument: services);
+
+        #region Queries
+
+        services.AddScoped<IRequest<IEnumerable<User>>, GetUserListQuery>();
+        services.AddScoped<IRequestHandler<GetUserListQuery, IEnumerable<User>>, GetUserListQueryHandler>();
+
+        services.AddScoped<IRequest<User?>, GetUserByIdQuery>();
+        services.AddScoped<IRequestHandler<GetUserByIdQuery, User?>, GetUserByIdQueryHandler>();
+
+        #endregion
+
+        #region Commands
+
+        services.AddScoped<IRequest<User?>, CreateUserCommand>();
+        services.AddScoped<IRequestHandler<CreateUserCommand, User?>, CreateUserCommandHandler>();
+
+        services.AddScoped<IRequest<Unit>, UpdateUserCommand>();
+        services.AddScoped<IRequestHandler<UpdateUserCommand, Unit>, UpdateUserCommandHandler>();
+
+        services.AddScoped<IRequest<Unit>, DeleteUserCommand>();
+        services.AddScoped<IRequestHandler<DeleteUserCommand, Unit>, DeleteUserCommandHandler>();
+
+        #endregion
+    }
+}

@@ -1,1 +1,9 @@
-﻿
+﻿global using JwtExample.Consumers.Desktop.Domain.Core.Models;
+global using JwtExample.Consumers.Desktop.Domain.Core.Models.Configuration;
+global using JwtExample.Consumers.Desktop.Domain.Core.Models.Requests;
+global using JwtExample.Consumers.Desktop.Domain.Core.Models.Responses;
+global using MediatR;
+global using Microsoft.Extensions.Options;
+global using Newtonsoft.Json;
+global using System.Net.Http;
+global using System.Text;
