@@ -4,7 +4,7 @@
     {
       "UpstreamPathTemplate": "/Account",
       "UpstreamHttpMethod": [ "Post" ],
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
