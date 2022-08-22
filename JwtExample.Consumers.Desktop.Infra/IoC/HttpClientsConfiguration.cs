@@ -1,15 +1,17 @@
-﻿namespace JwtExample.Consumers.Desktop.Presentation.Configurations;
+﻿namespace JwtExample.Consumers.Desktop.Infra.IoC;
 
 public static class HttpClientsConfiguration
 {
-    public static void AddHttpClientsConfiguration(this IServiceCollection services)
+    public static void AddHttpClientsConfiguration(
+        this IServiceCollection services,
+        ApplicationSettingsModel applicationSettings)
     {
         ArgumentNullException.ThrowIfNull(argument: services, paramName: nameof(services));
 
         services.AddHttpClient<IRequestHandler<AuthorizationByUsernameAndPasswordQuery, LoginAuthenticationResponse?>,
             AuthorizationByUsernameAndPasswordQueryHandler>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:5001");
+                client.BaseAddress = new(uriString: applicationSettings.Routes.GatewayRoute);
             });
     }
 }

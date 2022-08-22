@@ -18,7 +18,9 @@ public partial class App : ThisApplication
     private void ConfigureServices(IServiceCollection services)
     {
         // Configure IConfiguration (^_^)
-        services.AddConfigurationFrom(path: "appsettings.json");
+        services.AddConfigurationFrom(
+            path: "appsettings.json",
+            applicationSettings: out ApplicationSettingsModel applicationSettings);
 
         // .NET Native DI Abstraction
         services.AddServices();
@@ -29,6 +31,7 @@ public partial class App : ThisApplication
         // MediatR
         services.AddMediatRConfiguration();
 
-        services.AddHttpClientsConfiguration();
+        // HttpClient in IoC
+        services.AddHttpClientsConfiguration(applicationSettings);
     }
 }

@@ -4,7 +4,8 @@ public static class ApplicationConfiguration
 {
     public static void AddConfigurationFrom(
         this IServiceCollection services,
-        string path)
+        string path,
+        out ApplicationSettingsModel applicationSettings)
     {
         ArgumentNullException.ThrowIfNull(argument: services);
 
@@ -19,5 +20,7 @@ public static class ApplicationConfiguration
 
         // for IOptions
         services.Configure<ApplicationSettingsModel>(configuration);
+
+        applicationSettings = configuration.Get<ApplicationSettingsModel>();
     }
 }
