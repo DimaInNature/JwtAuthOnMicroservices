@@ -1,25 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿namespace JwtExample.Consumers.Desktop.Presentation.Views;
 
-namespace JwtExample.Consumers.Desktop.Presentation.Views;
-/// <summary>
-/// Interaction logic for MainView.xaml
-/// </summary>
 public partial class MainView : Window
 {
-    public MainView()
+    public MainView() => InitializeComponent();
+
+    private void OpenCreateSection(object sender, RoutedEventArgs e) =>
+        SetFrame(source: new CreateMenuView());
+
+    private void OpenUpdateSection(object sender, RoutedEventArgs e) =>
+        SetFrame(source: new UpdateMenuView());
+
+    private void OpenReadSection(object sender, RoutedEventArgs e) =>
+        SetFrame(source: new ReadMenuView());
+
+    private void OpenDeleteSection(object sender, RoutedEventArgs e) =>
+        SetFrame(source: new DeleteMenuView());
+
+    private void SetFrame(ContentControl source)
     {
-        InitializeComponent();
+        ArgumentNullException.ThrowIfNull(argument: source);
+
+        CollapseBody();
+
+        (MenuFrame.Visibility, MenuFrame.Content) = (Visibility.Visible, source);
     }
+
+    private void CollapseBody() => MenuBody.Visibility = Visibility.Collapsed;
 }

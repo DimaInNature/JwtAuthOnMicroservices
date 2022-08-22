@@ -1,15 +1,12 @@
-﻿<Window
-    x:Class="JwtExample.Consumers.Desktop.Presentation.Views.MainView"
+﻿<UserControl
+    x:Class="JwtExample.Consumers.Desktop.Presentation.Views.Menus.CreateMenuView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:JwtExample.Consumers.Desktop.Presentation.Views"
+    xmlns:local="clr-namespace:JwtExample.Consumers.Desktop.Presentation.Views.Menus"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    x:Name="ThisWindow"
-    Title="MainView"
-    Width="800"
-    Height="600"
-    WindowStartupLocation="CenterScreen"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
     mc:Ignorable="d">
 
     <Grid>
@@ -30,37 +27,15 @@
 
                 <Button
                     Margin="40,20,15,15"
-                    Click="OpenCreateSection"
-                    Content="Create"
+                    Click="OpenCreateUser"
+                    Content="Users"
                     FontSize="30" />
 
                 <Button
                     Grid.Column="1"
                     Margin="15,20,25,15"
-                    Click="OpenUpdateSection"
-                    Content="Update"
-                    FontSize="30" />
-
-            </Grid>
-
-            <Grid Grid.Row="1">
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <Button
-                    Margin="40,0,15,15"
-                    Click="OpenReadSection"
-                    Content="Read"
-                    FontSize="30" />
-
-                <Button
-                    Grid.Column="1"
-                    Margin="15,0,25,15"
-                    Click="OpenDeleteSection"
-                    Content="Delete"
+                    Click="OpenCreateProduct"
+                    Content="Products"
                     FontSize="30" />
 
             </Grid>
@@ -75,4 +50,4 @@
 
     </Grid>
 
-</Window>
+</UserControl>
