@@ -8,7 +8,7 @@ public class ProductRoutesSettingsModel
 
     public string DeleteProductRoute { get; set; } = string.Empty;
 
-    public string GetProductsListRoute { get; set; } = string.Empty;
+    public string GetProductListRoute { get; set; } = string.Empty;
 
     public string GetProductByIdRoute { get; set; } = string.Empty;
 

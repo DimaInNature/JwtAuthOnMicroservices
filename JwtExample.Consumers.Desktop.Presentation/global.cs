@@ -2,6 +2,7 @@
 global using JwtExample.Consumers.Desktop.Application.Extensions;
 global using JwtExample.Consumers.Desktop.Application.Interfaces;
 global using JwtExample.Consumers.Desktop.Application.Services;
+global using JwtExample.Consumers.Desktop.Domain.Core.Models;
 global using JwtExample.Consumers.Desktop.Domain.Core.Models.Configuration;
 global using JwtExample.Consumers.Desktop.Domain.Core.MVVM.Commands;
 global using JwtExample.Consumers.Desktop.Domain.Core.MVVM.ViewModels;
@@ -18,6 +19,7 @@ global using JwtExample.Consumers.Desktop.Presentation.Views.Products;
 global using JwtExample.Consumers.Desktop.Presentation.Views.Users;
 global using Microsoft.Extensions.DependencyInjection;
 global using System;
+global using System.Linq;
 global using System.Runtime.InteropServices;
 global using System.Security;
 global using System.Threading.Tasks;

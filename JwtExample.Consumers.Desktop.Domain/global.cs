@@ -2,6 +2,7 @@
 global using JwtExample.Consumers.Desktop.Domain.Core.Models.Configuration;
 global using JwtExample.Consumers.Desktop.Domain.Core.Models.Requests;
 global using JwtExample.Consumers.Desktop.Domain.Core.Models.Responses;
+global using JwtExample.Shared.Domain.Features;
 global using MediatR;
 global using Microsoft.Extensions.Options;
 global using Newtonsoft.Json;

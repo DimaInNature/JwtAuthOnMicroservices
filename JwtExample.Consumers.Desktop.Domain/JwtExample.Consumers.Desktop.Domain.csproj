@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JwtExample.Consumers.Desktop.Domain.Core\JwtExample.Consumers.Desktop.Domain.Core.csproj" />
+    <ProjectReference Include="..\JwtExample.Shared.Domain\JwtExample.Shared.Domain.csproj" />
   </ItemGroup>
 
 </Project>

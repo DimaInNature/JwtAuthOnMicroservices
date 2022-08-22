@@ -1,6 +1,10 @@
 ﻿namespace JwtExample.Consumers.Desktop.Domain.Queries.Products;
 
-public sealed record GetProductListQuery : IRequest<IEnumerable<Product>>
+public sealed record GetProductListQuery
+	: BaseAuthorizedFeature, IRequest<IEnumerable<Product>>
 {
+	public GetProductListQuery(string token) =>
+		Token = token;
 
+	public GetProductListQuery() { }
 }

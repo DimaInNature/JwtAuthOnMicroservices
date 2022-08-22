@@ -7,10 +7,8 @@ public class ProductAppService : IProductAppService
     public ProductAppService(IMediator mediator) =>
         _mediator = mediator;
 
-    public Task<IEnumerable<Product>> GetAllAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<Product>> GetAllAsync(string token) =>
+        await _mediator.Send(request: new GetProductListQuery(token));
 
     public Task<Product?> GetAsync(Guid id)
     {

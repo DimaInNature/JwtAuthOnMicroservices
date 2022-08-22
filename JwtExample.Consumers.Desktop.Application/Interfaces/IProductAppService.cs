@@ -4,7 +4,7 @@ public interface IProductAppService
 {
     public Task<Product?> GetAsync(Guid id);
 
-    public Task<IEnumerable<Product>> GetAllAsync();
+    public Task<IEnumerable<Product>> GetAllAsync(string token);
 
     public Task<Product?> CreateAsync(Product entity);
 

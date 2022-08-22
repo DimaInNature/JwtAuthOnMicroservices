@@ -2,7 +2,7 @@
 
 public class UserSessionService
 {
-    public string? JwtToken { get; private set; } = default;
+    public string? JwtToken { get; private set; }
 
     public bool IsActive { get; private set; } = false;
 

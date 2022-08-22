@@ -13,5 +13,11 @@ public static class HttpClientsConfiguration
             {
                 client.BaseAddress = new(uriString: applicationSettings.Routes.GatewayRoute);
             });
+
+        services.AddHttpClient<IRequestHandler<GetProductListQuery, IEnumerable<Product>>,
+            GetProductListQueryHandler>(client =>
+            {
+                client.BaseAddress = new(uriString: applicationSettings.Routes.GatewayRoute);
+            });
     }
 }
