@@ -113,7 +113,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Gateway.Desktop"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - Authentication", "4.3 - Authentication", "{E9C30BEA-DF50-489A-B60C-080744A7FAA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtExample.Shared.Authentication", "JwtExample.Shared.Authentication\JwtExample.Shared.Authentication.csproj", "{B995CDDD-D8AA-44D8-9F71-6A388EF17517}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Shared.Authentication", "JwtExample.Shared.Authentication\JwtExample.Shared.Authentication.csproj", "{B995CDDD-D8AA-44D8-9F71-6A388EF17517}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2.6 - Tests", "3.2.6 - Tests", "{C2C03740-AA30-4F72-A096-2F2C530D733F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtExample.Microservices.ProductService.Tests", "JwtExample.Microservices.ProductService.Tests\JwtExample.Microservices.ProductService.Tests.csproj", "{E19735C7-1A49-4609-92F7-D57397AE551C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -221,6 +225,10 @@ Global
 		{B995CDDD-D8AA-44D8-9F71-6A388EF17517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B995CDDD-D8AA-44D8-9F71-6A388EF17517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B995CDDD-D8AA-44D8-9F71-6A388EF17517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E19735C7-1A49-4609-92F7-D57397AE551C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E19735C7-1A49-4609-92F7-D57397AE551C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E19735C7-1A49-4609-92F7-D57397AE551C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E19735C7-1A49-4609-92F7-D57397AE551C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,6 +289,8 @@ Global
 		{4B67B895-DF7E-40BB-A3EE-5650941E5491} = {77313657-5C0A-479A-B490-FA11450C07C4}
 		{E9C30BEA-DF50-489A-B60C-080744A7FAA4} = {F0349FE8-253B-4230-B8D3-26AACF71B32A}
 		{B995CDDD-D8AA-44D8-9F71-6A388EF17517} = {E9C30BEA-DF50-489A-B60C-080744A7FAA4}
+		{C2C03740-AA30-4F72-A096-2F2C530D733F} = {E7385CDD-163A-49AE-97A9-ABB0925FC60D}
+		{E19735C7-1A49-4609-92F7-D57397AE551C} = {C2C03740-AA30-4F72-A096-2F2C530D733F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D65BFBC-AA66-4696-8CF7-73607689D03B}
