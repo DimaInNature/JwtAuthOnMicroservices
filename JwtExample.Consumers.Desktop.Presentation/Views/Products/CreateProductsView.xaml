@@ -5,8 +5,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:JwtExample.Consumers.Desktop.Presentation.Views.Products"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="600"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid />
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition />
+            <RowDefinition Height="1.4*" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+
+        <TextBox
+            Grid.Row="1"
+            Width="300"
+            Height="60"
+            Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBox
+            Grid.Row="2"
+            Width="350"
+            Height="90"
+            HorizontalScrollBarVisibility="Auto"
+            Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button
+            Grid.Row="4"
+            Width="200"
+            Height="50"
+            Command="{Binding CreateCommand}"
+            Content="Create" />
+
+    </Grid>
+
 </UserControl>

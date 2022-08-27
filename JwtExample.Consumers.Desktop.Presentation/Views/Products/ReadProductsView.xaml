@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="0.35*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
@@ -44,17 +44,18 @@
                         <DataTemplate>
 
                             <Border
-                                Width="185"
+                                Width="150"
                                 Height="35"
-                                Margin="10,0,10,0"
-                                Background="#0d1117"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                BorderBrush="Black"
+                                BorderThickness="1"
                                 CornerRadius="10">
 
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     FontSize="15"
-                                    Foreground="White"
                                     Text="{Binding Name, Mode=TwoWay}" />
 
                             </Border>

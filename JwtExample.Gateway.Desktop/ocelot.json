@@ -16,7 +16,7 @@
     // ProductService
     {
       "UpstreamPathTemplate": "/Product",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -25,6 +25,22 @@
         }
       ],
       "DownstreamPathTemplate": "/Product",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/Product/{0}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7248
+        }
+      ],
+      "DownstreamPathTemplate": "/Product/{0}",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []

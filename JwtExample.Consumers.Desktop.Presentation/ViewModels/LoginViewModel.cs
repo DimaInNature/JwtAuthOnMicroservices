@@ -155,7 +155,7 @@ internal sealed class LoginViewModel : BaseViewModel
     }
 
     private bool CanExecuteLogin(object obj) =>
-        new string[] { Username, Password }.AnyIsNotNullOrWhiteSpace();
+        new string[] { Username, Password }.AllIsNotNullOrWhiteSpace();
 
     private async void ExecuteRegistration(object obj)
     {
@@ -165,7 +165,7 @@ internal sealed class LoginViewModel : BaseViewModel
     }
 
     private bool CanExecuteRegistration(object obj) =>
-        new string[] { Username, Password }.AnyIsNotNullOrWhiteSpace();
+        new string[] { Username, Password }.AllIsNotNullOrWhiteSpace();
 
     private void InitializationCommands()
     {
