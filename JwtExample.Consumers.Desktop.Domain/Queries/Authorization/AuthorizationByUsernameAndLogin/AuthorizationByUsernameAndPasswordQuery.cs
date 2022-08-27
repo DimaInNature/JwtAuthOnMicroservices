@@ -1,13 +1,12 @@
 ﻿namespace JwtExample.Consumers.Desktop.Domain.Queries.Authorization;
 
 public record AuthorizationByUsernameAndPasswordQuery
-    : IRequest<LoginAuthenticationResponse?>
+    : BaseAnonymousFeature, IRequest<LoginAuthenticationResponse?>
 {
     public LoginAuthenticationRequest? Request { get; }
 
     public AuthorizationByUsernameAndPasswordQuery(
-        LoginAuthenticationRequest request) =>
-        Request = request;
+        LoginAuthenticationRequest request) => Request = request;
 
     public AuthorizationByUsernameAndPasswordQuery() { }
 }

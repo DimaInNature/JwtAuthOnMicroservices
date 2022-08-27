@@ -5,15 +5,33 @@ public sealed record GetUserByIdQueryHandler
 {
     private readonly HttpClient _httpClient;
 
-    public GetUserByIdQueryHandler(HttpClient httpClient) =>
-        _httpClient = httpClient;
+    private readonly ApplicationSettingsModel _applicationSettings;
 
-    public Task<User?> Handle(
+    public GetUserByIdQueryHandler(
+        IHttpClientFactory httpClientFactory,
+        IOptions<ApplicationSettingsModel> applicationSettings)
+    {
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
+
+        _applicationSettings = applicationSettings.Value;
+    }
+
+    public async Task<User?> Handle(
         GetUserByIdQuery request,
         CancellationToken cancellationToken)
     {
-        if (request.Id == Guid.Empty) return default;
+        _httpClient.DefaultRequestHeaders.Authorization = new(
+           scheme: "Bearer",
+           parameter: request.Token);
 
-        return default;
+        var response = await _httpClient.GetAsync(
+            requestUri: _applicationSettings.Routes.Users.GetUserByIdRoute,
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
+
+        string apiResponse = await response.Content.ReadAsStringAsync(cancellationToken);
+
+        return JsonConvert.DeserializeObject(value: apiResponse) as User;
     }
 }

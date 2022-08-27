@@ -5,15 +5,37 @@ public sealed record CreateUserCommandHandler
 {
     private readonly HttpClient _httpClient;
 
-    public CreateUserCommandHandler(HttpClient httpClient) =>
-        _httpClient = httpClient;
+    private readonly ApplicationSettingsModel _applicationSettings;
 
-    public Task<User?> Handle(
+    public CreateUserCommandHandler(
+        IHttpClientFactory httpClientFactory,
+        IOptions<ApplicationSettingsModel> applicationSettings)
+    {
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
+
+        _applicationSettings = applicationSettings.Value;
+    }
+
+    public async Task<User?> Handle(
         CreateUserCommand request,
         CancellationToken cancellationToken)
     {
-        if (request.User is null) return default;
+        ArgumentNullException.ThrowIfNull(
+            argument: request.User,
+            paramName: nameof(request));
 
-        return default;
+        using var response = await _httpClient.PostAsync(
+            requestUri: _applicationSettings.Routes.Users.CreateUserRoute,
+            content: new StringContent(
+                content: JsonConvert.SerializeObject(value: request.User),
+                encoding: Encoding.UTF8,
+                mediaType: "application/json"),
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
+
+        string apiResponse = await response.Content.ReadAsStringAsync(cancellationToken);
+
+        return JsonConvert.DeserializeObject<User>(value: apiResponse);
     }
 }

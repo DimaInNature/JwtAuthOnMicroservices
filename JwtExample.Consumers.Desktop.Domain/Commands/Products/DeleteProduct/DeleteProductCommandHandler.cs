@@ -5,14 +5,35 @@ public sealed record DeleteProductCommandHandler
 {
     private readonly HttpClient _httpClient;
 
-    public DeleteProductCommandHandler(HttpClient httpClient) =>
-        _httpClient = httpClient;
+    private readonly ApplicationSettingsModel _applicationSettings;
 
-    public Task<Unit> Handle(
+    public DeleteProductCommandHandler(
+        IHttpClientFactory httpClientFactory,
+        IOptions<ApplicationSettingsModel> applicationSettings)
+    {
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
+
+        _applicationSettings = applicationSettings.Value;
+    }
+
+    public async Task<Unit> Handle(
         DeleteProductCommand request,
         CancellationToken cancellationToken)
     {
-        if (request.Id == Guid.Empty) return default;
+        if (request.Id.Equals(g: Guid.Empty))
+        {
+            return default;
+        }
+
+        _httpClient.DefaultRequestHeaders.Authorization = new(
+            scheme: "Bearer",
+            parameter: request.Token);
+
+        using var response = await _httpClient.DeleteAsync(
+            requestUri: _applicationSettings.Routes.Products.DeleteProduct(id: request.Id),
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
 
         return default;
     }

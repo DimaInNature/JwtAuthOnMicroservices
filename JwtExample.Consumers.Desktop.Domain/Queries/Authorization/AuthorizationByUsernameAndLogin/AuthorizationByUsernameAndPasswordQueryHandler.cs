@@ -9,11 +9,11 @@ public record AuthorizationByUsernameAndPasswordQueryHandler
 
     public AuthorizationByUsernameAndPasswordQueryHandler(
         IOptions<ApplicationSettingsModel> applicationSettings,
-        HttpClient httpClient)
+        IHttpClientFactory httpClientFactory)
     {
         _applicationSettings = applicationSettings.Value;
 
-        _httpClient = httpClient;
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
     }
 
     public async Task<LoginAuthenticationResponse?> Handle(
@@ -31,6 +31,8 @@ public record AuthorizationByUsernameAndPasswordQueryHandler
                 encoding: Encoding.UTF8,
                 mediaType: "application/json"),
             cancellationToken);
+
+        response.EnsureSuccessStatusCode();
 
         string apiResponse = await response.Content.ReadAsStringAsync(cancellationToken);
 

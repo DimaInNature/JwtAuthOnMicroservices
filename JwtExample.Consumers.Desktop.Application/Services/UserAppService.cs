@@ -7,28 +7,18 @@ public class UserAppService : IUserAppService
     public UserAppService(IMediator mediator) =>
         _mediator = mediator;
 
-    public Task<User?> GetAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<User>> GetAllAsync(string token) =>
+        await _mediator.Send(request: new GetUserListQuery(token));
 
-    public Task<IEnumerable<User>> GetAllAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<User?> GetAsync(Guid id, string token) =>
+        await _mediator.Send(request: new GetUserByIdQuery(id, token));
 
-    public Task<User?> CreateAsync(User entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<User?> CreateAsync(User entity) =>
+        await _mediator.Send(request: new CreateUserCommand(entity));
 
-    public Task UpdateAsync(User entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task UpdateAsync(User entity, string token) =>
+        await _mediator.Send(request: new UpdateUserCommand(entity, token));
 
-    public Task DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task DeleteAsync(Guid id, string token) =>
+        await _mediator.Send(request: new DeleteUserCommand(id, token));
 }

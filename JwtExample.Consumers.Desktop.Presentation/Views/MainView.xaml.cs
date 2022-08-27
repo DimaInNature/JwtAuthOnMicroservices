@@ -4,6 +4,9 @@ public partial class MainView : Window
 {
     public MainView() => InitializeComponent();
 
+    private void OpenHomeSection(object sender, RoutedEventArgs e) =>
+        CollapseFrame();
+
     private void OpenCreateSection(object sender, RoutedEventArgs e) =>
         SetFrame(source: new CreateMenuView());
 
@@ -16,14 +19,20 @@ public partial class MainView : Window
     private void OpenDeleteSection(object sender, RoutedEventArgs e) =>
         SetFrame(source: new DeleteMenuView());
 
+    private void Logout(object sender, RoutedEventArgs e)
+    {
+        new LoginView().Show();
+
+        Close();
+    }
+
     private void SetFrame(ContentControl source)
     {
-        ArgumentNullException.ThrowIfNull(argument: source);
-
-        CollapseBody();
+        if (source is null) throw new NullReferenceException(message: nameof(source));
 
         (MenuFrame.Visibility, MenuFrame.Content) = (Visibility.Visible, source);
     }
 
-    private void CollapseBody() => MenuBody.Visibility = Visibility.Collapsed;
+    private void CollapseFrame() =>
+        (MenuFrame.Visibility, MenuFrame.Content) = (Visibility.Collapsed, default);
 }

@@ -10,23 +10,15 @@ public class ProductAppService : IProductAppService
     public async Task<IEnumerable<Product>> GetAllAsync(string token) =>
         await _mediator.Send(request: new GetProductListQuery(token));
 
-    public Task<Product?> GetAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<Product?> GetAsync(Guid id, string token) =>
+        await _mediator.Send(request: new GetProductByIdQuery(id, token));
 
-    public Task<Product?> CreateAsync(Product entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<Product?> CreateAsync(Product entity, string token) =>
+        await _mediator.Send(request: new CreateProductCommand(entity, token));
 
-    public Task UpdateAsync(Product entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task UpdateAsync(Product entity, string token) =>
+        await _mediator.Send(request: new UpdateProductCommand(entity, token));
 
-    public Task DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task DeleteAsync(Guid id, string token) =>
+        await _mediator.Send(request: new DeleteProductCommand(id, token));
 }

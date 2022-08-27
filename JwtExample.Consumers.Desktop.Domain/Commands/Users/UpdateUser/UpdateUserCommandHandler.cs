@@ -5,14 +5,38 @@ public sealed record UpdateUserCommandHandler
 {
     private readonly HttpClient _httpClient;
 
-    public UpdateUserCommandHandler(HttpClient httpClient) =>
-        _httpClient = httpClient;
+    private readonly ApplicationSettingsModel _applicationSettings;
 
-    public Task<Unit> Handle(
+    public UpdateUserCommandHandler(
+        IHttpClientFactory httpClientFactory,
+        IOptions<ApplicationSettingsModel> applicationSettings)
+    {
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
+
+        _applicationSettings = applicationSettings.Value;
+    }
+
+    public async Task<Unit> Handle(
         UpdateUserCommand request,
         CancellationToken cancellationToken)
     {
-        if (request.User is null) return default;
+        ArgumentNullException.ThrowIfNull(
+            argument: request.User,
+            paramName: nameof(request));
+
+        _httpClient.DefaultRequestHeaders.Authorization = new(
+            scheme: "Bearer",
+            parameter: request.Token);
+
+        using var response = await _httpClient.PutAsync(
+            requestUri: _applicationSettings.Routes.Users.UpdateUserRoute,
+            content: new StringContent(
+                content: JsonConvert.SerializeObject(value: request.User),
+                encoding: Encoding.UTF8,
+                mediaType: "application/json"),
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
 
         return default;
     }

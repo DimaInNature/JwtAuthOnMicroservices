@@ -8,10 +8,10 @@ public sealed record GetProductListQueryHandler
     private readonly ApplicationSettingsModel _applicationSettings;
 
     public GetProductListQueryHandler(
-        HttpClient httpClient,
+        IHttpClientFactory httpClientFactory,
         IOptions<ApplicationSettingsModel> applicationSettings)
     {
-        _httpClient = httpClient;
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
 
         _applicationSettings = applicationSettings.Value;
     }
@@ -27,6 +27,8 @@ public sealed record GetProductListQueryHandler
         var response = await _httpClient.GetAsync(
             requestUri: _applicationSettings.Routes.Products.GetProductListRoute,
             cancellationToken);
+
+        response.EnsureSuccessStatusCode();
 
         string apiResponse = await response.Content.ReadAsStringAsync(cancellationToken);
 

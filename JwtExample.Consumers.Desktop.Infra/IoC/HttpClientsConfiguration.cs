@@ -6,18 +6,13 @@ public static class HttpClientsConfiguration
         this IServiceCollection services,
         ApplicationSettingsModel applicationSettings)
     {
-        ArgumentNullException.ThrowIfNull(argument: services, paramName: nameof(services));
+        ArgumentNullException.ThrowIfNull(
+            argument: services,
+            paramName: nameof(services));
 
-        services.AddHttpClient<IRequestHandler<AuthorizationByUsernameAndPasswordQuery, LoginAuthenticationResponse?>,
-            AuthorizationByUsernameAndPasswordQueryHandler>(client =>
-            {
-                client.BaseAddress = new(uriString: applicationSettings.Routes.GatewayRoute);
-            });
-
-        services.AddHttpClient<IRequestHandler<GetProductListQuery, IEnumerable<Product>>,
-            GetProductListQueryHandler>(client =>
-            {
-                client.BaseAddress = new(uriString: applicationSettings.Routes.GatewayRoute);
-            });
+        services.AddHttpClient("BaseHttpClient", client =>
+        {
+            client.BaseAddress = new(uriString: applicationSettings.Routes.GatewayRoute);
+        });
     }
 }

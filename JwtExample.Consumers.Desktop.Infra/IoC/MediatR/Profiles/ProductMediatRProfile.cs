@@ -18,8 +18,8 @@ public static class ProductMediatRProfile
 
         #region Commands
 
-        services.AddScoped<IRequest<Unit>, CreateProductCommand>();
-        services.AddScoped<IRequestHandler<CreateProductCommand, Unit>, CreateProductCommandHandler>();
+        services.AddScoped<IRequest<Product?>, CreateProductCommand>();
+        services.AddScoped<IRequestHandler<CreateProductCommand, Product?>, CreateProductCommandHandler>();
 
         services.AddScoped<IRequest<Unit>, UpdateProductCommand>();
         services.AddScoped<IRequestHandler<UpdateProductCommand, Unit>, UpdateProductCommandHandler>();

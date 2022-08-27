@@ -5,15 +5,33 @@ public sealed record GetProductByIdQueryHandler
 {
     private readonly HttpClient _httpClient;
 
-    public GetProductByIdQueryHandler(HttpClient httpClient) =>
-        _httpClient = httpClient;
+    private readonly ApplicationSettingsModel _applicationSettings;
 
-    public Task<Product?> Handle(
+    public GetProductByIdQueryHandler(
+        IHttpClientFactory httpClientFactory,
+        IOptions<ApplicationSettingsModel> applicationSettings)
+    {
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
+
+        _applicationSettings = applicationSettings.Value;
+    }
+
+    public async Task<Product?> Handle(
         GetProductByIdQuery request,
         CancellationToken cancellationToken)
     {
-        if (request.Id == Guid.Empty) return default;
+        _httpClient.DefaultRequestHeaders.Authorization = new(
+             scheme: "Bearer",
+             parameter: request.Token);
 
-        return default;
+        var response = await _httpClient.GetAsync(
+            requestUri: _applicationSettings.Routes.Products.GetProductByIdRoute,
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
+
+        string apiResponse = await response.Content.ReadAsStringAsync(cancellationToken);
+
+        return JsonConvert.DeserializeObject(value: apiResponse) as Product;
     }
 }

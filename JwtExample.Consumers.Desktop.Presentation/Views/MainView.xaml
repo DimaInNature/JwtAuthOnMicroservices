@@ -9,66 +9,88 @@
     Title="MainView"
     Width="800"
     Height="600"
+    MinWidth="800"
+    MinHeight="600"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
     <Grid>
 
-        <Grid x:Name="MenuBody">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-            <Grid>
+        <!--#region Menu-->
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="15,0,0,0">
 
-                <Button
-                    Margin="40,20,15,15"
-                    Click="OpenCreateSection"
-                    Content="Create"
-                    FontSize="30" />
+            <RadioButton
+                Width="200"
+                Height="50"
+                HorizontalAlignment="Left"
+                Click="OpenHomeSection"
+                Content="Home"
+                FontSize="15"
+                IsChecked="True" />
 
-                <Button
-                    Grid.Column="1"
-                    Margin="15,20,25,15"
-                    Click="OpenUpdateSection"
-                    Content="Update"
-                    FontSize="30" />
+            <RadioButton
+                Width="200"
+                Height="50"
+                HorizontalAlignment="Left"
+                Click="OpenCreateSection"
+                Content="Create"
+                FontSize="15" />
 
-            </Grid>
+            <RadioButton
+                Width="200"
+                Height="50"
+                HorizontalAlignment="Left"
+                Click="OpenReadSection"
+                Content="Read"
+                FontSize="15" />
 
-            <Grid Grid.Row="1">
+            <RadioButton
+                Width="200"
+                Height="50"
+                HorizontalAlignment="Left"
+                Click="OpenUpdateSection"
+                Content="Update"
+                FontSize="15" />
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+            <RadioButton
+                Width="200"
+                Height="50"
+                HorizontalAlignment="Left"
+                Click="OpenDeleteSection"
+                Content="Delete"
+                FontSize="15" />
 
-                <Button
-                    Margin="40,0,15,15"
-                    Click="OpenReadSection"
-                    Content="Read"
-                    FontSize="30" />
+            <RadioButton
+                Width="200"
+                Height="50"
+                HorizontalAlignment="Left"
+                Click="Logout"
+                Content="Logout"
+                FontSize="15" />
 
-                <Button
-                    Grid.Column="1"
-                    Margin="15,0,25,15"
-                    Click="OpenDeleteSection"
-                    Content="Delete"
-                    FontSize="30" />
+        </StackPanel>
 
-            </Grid>
-
-        </Grid>
+        <!--#endregion-->
 
         <Frame
             x:Name="MenuFrame"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="15"
             Content="{x:Null}"
             NavigationUIVisibility="Hidden"
             Visibility="Collapsed" />

@@ -5,14 +5,31 @@ public sealed record DeleteUserCommandHandler
 {
     private readonly HttpClient _httpClient;
 
-    public DeleteUserCommandHandler(HttpClient httpClient) =>
-        _httpClient = httpClient;
+    private readonly ApplicationSettingsModel _applicationSettings;
 
-    public Task<Unit> Handle(
+    public DeleteUserCommandHandler(
+        IHttpClientFactory httpClientFactory,
+        IOptions<ApplicationSettingsModel> applicationSettings)
+    {
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
+
+        _applicationSettings = applicationSettings.Value;
+    }
+
+    public async Task<Unit> Handle(
         DeleteUserCommand request,
         CancellationToken cancellationToken)
     {
-        if (request.Id == Guid.Empty) return default;
+        if (request.Id.Equals(g: Guid.Empty))
+        {
+            return default;
+        }
+
+        var response = await _httpClient.DeleteAsync(
+            requestUri: _applicationSettings.Routes.Users.DeleteUser(id: request.Id),
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
 
         return default;
     }

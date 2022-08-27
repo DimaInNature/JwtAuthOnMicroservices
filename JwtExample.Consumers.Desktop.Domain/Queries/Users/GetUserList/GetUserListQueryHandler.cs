@@ -5,13 +5,33 @@ public sealed record GetUserListQueryHandler
 {
     private readonly HttpClient _httpClient;
 
-    public GetUserListQueryHandler(HttpClient httpClient) =>
-        _httpClient = httpClient;
+    private readonly ApplicationSettingsModel _applicationSettings;
 
-    public Task<IEnumerable<User>> Handle(
+    public GetUserListQueryHandler(
+        IHttpClientFactory httpClientFactory,
+        IOptions<ApplicationSettingsModel> applicationSettings)
+    {
+        _httpClient = httpClientFactory.CreateClient(name: "BaseHttpClient");
+
+        _applicationSettings = applicationSettings.Value;
+    }
+
+    public async Task<IEnumerable<User>> Handle(
         GetUserListQuery request,
         CancellationToken cancellationToken)
     {
-        return default;
+        _httpClient.DefaultRequestHeaders.Authorization = new(
+           scheme: "Bearer",
+           parameter: request.Token);
+
+        var response = await _httpClient.GetAsync(
+            requestUri: _applicationSettings.Routes.Users.GetUsersListRoute,
+            cancellationToken);
+
+        response.EnsureSuccessStatusCode();
+
+        string apiResponse = await response.Content.ReadAsStringAsync(cancellationToken);
+
+        return JsonConvert.DeserializeObject<IEnumerable<User>>(value: apiResponse) ?? Enumerable.Empty<User>();
     }
 }
