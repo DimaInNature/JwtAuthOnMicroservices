@@ -4,6 +4,8 @@ internal sealed class LoginViewModel : BaseViewModel
 {
     private readonly IAuthenticationAppService _authenticationService;
 
+    private readonly IUserAppService _userService;
+
     private readonly UserSessionService _userSessionService;
 
     #region Acessors
@@ -102,9 +104,12 @@ internal sealed class LoginViewModel : BaseViewModel
 
     public LoginViewModel(
         UserSessionService userSessionService,
-        IAuthenticationAppService authenticationService)
+        IAuthenticationAppService authenticationService,
+        IUserAppService userService)
     {
         _authenticationService = authenticationService;
+
+        _userService = userService;
 
         _userSessionService = userSessionService;
 
@@ -159,6 +164,33 @@ internal sealed class LoginViewModel : BaseViewModel
 
     private async void ExecuteRegistration(object obj)
     {
+        User user = new(username: Username, password: Password, role: "User");
+
+        User? createdUser = await _userService.CreateAsync(entity: user);
+
+        if (createdUser is null)
+        {
+            if (string.IsNullOrWhiteSpace(value: createdUser?.Username) is false)
+            {
+                MessageBox.Show(
+                    messageBoxText: "User is already exists.",
+                    caption: "Registration error",
+                    button: MessageBoxButton.OK,
+                    icon: MessageBoxImage.Error);
+
+                IsConnectionStopped = true;
+            }
+
+            return;
+        }
+
+        var authResponse = await _authenticationService
+            .AuthorizeAsync(request: new(Username, Password));
+
+        IsConnectionStopped = true;
+
+        _userSessionService.StartSession(authResponse);
+
         (obj as MainView)?.Show();
 
         (obj as Window)?.Close();

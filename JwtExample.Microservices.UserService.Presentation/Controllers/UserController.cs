@@ -86,7 +86,10 @@ public class UserController : ControllerBase
         if (user is not null)
             await _userService.CreateAsync(entity: user);
 
-        return Ok();
+        return CreatedAtAction(
+            actionName: nameof(Get),
+            routeValues: new { id = user?.Id },
+            value: user);
     }
 
     /// <summary>
