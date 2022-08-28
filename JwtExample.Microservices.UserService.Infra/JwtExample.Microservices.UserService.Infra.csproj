@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IoC\" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Scrutor" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JwtExample.Microservices.UserService.Application\JwtExample.Microservices.UserService.Application.csproj" />
+    <ProjectReference Include="..\JwtExample.Microservices.UserService.Persistence\JwtExample.Microservices.UserService.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

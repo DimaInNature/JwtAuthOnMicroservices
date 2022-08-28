@@ -1,1 +1,12 @@
-﻿
+﻿global using JwtExample.Microservices.UserService.Application.Interfaces;
+global using JwtExample.Microservices.UserService.Infra.IoC;
+global using JwtExample.Microservices.UserService.Infra.IoC.MediatR;
+global using JwtExample.Microservices.UserService.Persistence.IoC;
+global using JwtExample.Microservices.UserService.Presentation.Configurations;
+global using JwtExample.Shared.Authentication.Extensions;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.OpenApi.Models;
+global using Serilog;
+global using Serilog.Events;
+global using System.Reflection;

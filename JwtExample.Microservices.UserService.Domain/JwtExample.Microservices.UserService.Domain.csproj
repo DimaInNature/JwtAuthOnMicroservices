@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Queries\" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JwtExample.Microservices.UserService.Persistence\JwtExample.Microservices.UserService.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

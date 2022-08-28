@@ -1,1 +1,11 @@
-﻿
+﻿global using JwtExample.Microservices.UserService.Application.Interfaces;
+global using JwtExample.Microservices.UserService.Application.Services;
+global using JwtExample.Microservices.UserService.Domain.Commands.Users;
+global using JwtExample.Microservices.UserService.Domain.Queries.Users;
+global using JwtExample.Microservices.UserService.Infra.IoC.MediatR.Profiles;
+global using JwtExample.Microservices.UserService.Persistence.Entities;
+global using JwtExample.Shared.Persistence.Interfaces;
+global using JwtExample.Shared.Persistence.Repositories;
+global using MediatR;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.Reflection;

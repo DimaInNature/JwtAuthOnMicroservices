@@ -12,11 +12,20 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JwtExample.Microservices.UserService.Application\JwtExample.Microservices.UserService.Application.csproj" />
+    <ProjectReference Include="..\JwtExample.Microservices.UserService.Infra\JwtExample.Microservices.UserService.Infra.csproj" />
+    <ProjectReference Include="..\JwtExample.Shared.Authentication\JwtExample.Shared.Authentication.csproj" />
   </ItemGroup>
 
 </Project>

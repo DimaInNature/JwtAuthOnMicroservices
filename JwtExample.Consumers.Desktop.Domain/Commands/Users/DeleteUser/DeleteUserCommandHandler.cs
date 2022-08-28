@@ -25,6 +25,10 @@ public sealed record DeleteUserCommandHandler
             return default;
         }
 
+        _httpClient.DefaultRequestHeaders.Authorization = new(
+            scheme: "Bearer",
+            parameter: request.Token);
+
         var response = await _httpClient.DeleteAsync(
             requestUri: _applicationSettings.Routes.Users.DeleteUser(id: request.Id),
             cancellationToken);

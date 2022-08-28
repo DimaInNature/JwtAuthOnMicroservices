@@ -1,6 +1,6 @@
 ﻿namespace JwtExample.Microservices.ProductService.Domain.Commands.Products;
 
-public sealed record class CreateProductCommandHandler
+public sealed record CreateProductCommandHandler
     : IRequestHandler<CreateProductCommand>
 {
     private readonly IGenericRepository<ProductEntity> _repository;

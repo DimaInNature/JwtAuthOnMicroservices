@@ -1,6 +1,6 @@
 ﻿namespace JwtExample.Microservices.ProductService.Domain.Commands.Products;
 
-public sealed record class UpdateProductCommand : IRequest
+public sealed record UpdateProductCommand : IRequest
 {
     public ProductEntity? Product { get; }
 

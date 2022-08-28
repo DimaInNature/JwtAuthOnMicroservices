@@ -53,8 +53,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1.3 - Domain", "3.1.3 - D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.UserService.Domain", "JwtExample.Microservices.UserService.Domain\JwtExample.Microservices.UserService.Domain.csproj", "{1A6EB698-CF0B-43F1-9D5E-1DE30A673179}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.UserService.Domain.Core", "JwtExample.Microservices.UserService.Domain.Core\JwtExample.Microservices.UserService.Domain.Core.csproj", "{C51569B5-FD6A-4168-82F1-7D99678AF698}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1.4 - Persistence", "3.1.4 - Persistence", "{D2835DB8-731C-454D-9572-8F7E97D5AFAD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.UserService.Persistence", "JwtExample.Microservices.UserService.Persistence\JwtExample.Microservices.UserService.Persistence.csproj", "{07B63D6E-191B-4D39-BF2B-2CABE79BB8EF}"
@@ -117,7 +115,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Shared.Authentic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2.6 - Tests", "3.2.6 - Tests", "{C2C03740-AA30-4F72-A096-2F2C530D733F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtExample.Microservices.ProductService.Tests", "JwtExample.Microservices.ProductService.Tests\JwtExample.Microservices.ProductService.Tests.csproj", "{E19735C7-1A49-4609-92F7-D57397AE551C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.ProductService.Tests", "JwtExample.Microservices.ProductService.Tests\JwtExample.Microservices.ProductService.Tests.csproj", "{E19735C7-1A49-4609-92F7-D57397AE551C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -157,10 +155,6 @@ Global
 		{1A6EB698-CF0B-43F1-9D5E-1DE30A673179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A6EB698-CF0B-43F1-9D5E-1DE30A673179}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A6EB698-CF0B-43F1-9D5E-1DE30A673179}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C51569B5-FD6A-4168-82F1-7D99678AF698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C51569B5-FD6A-4168-82F1-7D99678AF698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C51569B5-FD6A-4168-82F1-7D99678AF698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C51569B5-FD6A-4168-82F1-7D99678AF698}.Release|Any CPU.Build.0 = Release|Any CPU
 		{07B63D6E-191B-4D39-BF2B-2CABE79BB8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07B63D6E-191B-4D39-BF2B-2CABE79BB8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07B63D6E-191B-4D39-BF2B-2CABE79BB8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -258,7 +252,6 @@ Global
 		{42F37A97-326D-40F7-A663-5E33D2058D38} = {8825751F-82BF-4D45-A142-75A3755BC27C}
 		{EE25E74F-F3D7-47FB-B109-0FDB6C98F43B} = {609CC7A9-3149-4B02-BB39-7A776B3DEE75}
 		{1A6EB698-CF0B-43F1-9D5E-1DE30A673179} = {EE25E74F-F3D7-47FB-B109-0FDB6C98F43B}
-		{C51569B5-FD6A-4168-82F1-7D99678AF698} = {EE25E74F-F3D7-47FB-B109-0FDB6C98F43B}
 		{D2835DB8-731C-454D-9572-8F7E97D5AFAD} = {609CC7A9-3149-4B02-BB39-7A776B3DEE75}
 		{07B63D6E-191B-4D39-BF2B-2CABE79BB8EF} = {D2835DB8-731C-454D-9572-8F7E97D5AFAD}
 		{56B6D38B-D28C-4D9E-8A89-200FE70308F8} = {609CC7A9-3149-4B02-BB39-7A776B3DEE75}

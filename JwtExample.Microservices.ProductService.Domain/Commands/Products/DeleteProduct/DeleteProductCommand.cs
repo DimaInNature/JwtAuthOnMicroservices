@@ -1,6 +1,6 @@
 ﻿namespace JwtExample.Microservices.ProductService.Domain.Commands.Products;
 
-public sealed record class DeleteProductCommand : IRequest
+public sealed record DeleteProductCommand : IRequest
 {
     public Guid Id { get; }
 
