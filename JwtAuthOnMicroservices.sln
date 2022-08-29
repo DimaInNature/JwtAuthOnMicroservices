@@ -95,7 +95,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.Au
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.AuthService.Domain.Core", "JwtExample.Microservices.AuthService.Domain.Core\JwtExample.Microservices.AuthService.Domain.Core.csproj", "{7C948028-67A4-4373-AD36-9EEDEE96F882}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.3.4 - Infra", "3.3.4 - Infra", "{A661D76F-3916-4E75-87D7-D4056B97391A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.3.5 - Infra", "3.3.5 - Infra", "{A661D76F-3916-4E75-87D7-D4056B97391A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.AuthService.Infra", "JwtExample.Microservices.AuthService.Infra\JwtExample.Microservices.AuthService.Infra.csproj", "{729EA931-204F-4AB4-BD18-5C5C79B556A4}"
 EndProject
@@ -116,6 +116,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2.6 - Tests", "3.2.6 - Tests", "{C2C03740-AA30-4F72-A096-2F2C530D733F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtExample.Microservices.ProductService.Tests", "JwtExample.Microservices.ProductService.Tests\JwtExample.Microservices.ProductService.Tests.csproj", "{E19735C7-1A49-4609-92F7-D57397AE551C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.3.4 - Persistence", "3.3.4 - Persistence", "{D843E538-5857-4F78-97E2-A74E3EC3BBAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtExample.Microservices.AuthService.Persistence", "JwtExample.Microservices.AuthService.Persistence\JwtExample.Microservices.AuthService.Persistence.csproj", "{A781D269-CBB2-49D8-B3C8-333AB8C79950}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -223,6 +227,10 @@ Global
 		{E19735C7-1A49-4609-92F7-D57397AE551C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E19735C7-1A49-4609-92F7-D57397AE551C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E19735C7-1A49-4609-92F7-D57397AE551C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A781D269-CBB2-49D8-B3C8-333AB8C79950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A781D269-CBB2-49D8-B3C8-333AB8C79950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A781D269-CBB2-49D8-B3C8-333AB8C79950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A781D269-CBB2-49D8-B3C8-333AB8C79950}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -284,6 +292,8 @@ Global
 		{B995CDDD-D8AA-44D8-9F71-6A388EF17517} = {E9C30BEA-DF50-489A-B60C-080744A7FAA4}
 		{C2C03740-AA30-4F72-A096-2F2C530D733F} = {E7385CDD-163A-49AE-97A9-ABB0925FC60D}
 		{E19735C7-1A49-4609-92F7-D57397AE551C} = {C2C03740-AA30-4F72-A096-2F2C530D733F}
+		{D843E538-5857-4F78-97E2-A74E3EC3BBAC} = {8D2F11E5-D686-48B4-8E73-82D5E11206B8}
+		{A781D269-CBB2-49D8-B3C8-333AB8C79950} = {D843E538-5857-4F78-97E2-A74E3EC3BBAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D65BFBC-AA66-4696-8CF7-73607689D03B}

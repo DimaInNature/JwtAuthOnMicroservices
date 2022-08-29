@@ -2,28 +2,26 @@
 
 public class JwtTokenHandler
 {
-    private readonly List<User> _usersList;
-
     private readonly ApplicationSettingsModel _applicationSettings;
 
-    public JwtTokenHandler(IOptions<ApplicationSettingsModel> applicationSettings)
+    private readonly IUsersService _usersService;
+
+    public JwtTokenHandler(
+        IUsersService usersService,
+        IOptions<ApplicationSettingsModel> applicationSettings)
     {
         _applicationSettings = applicationSettings.Value;
 
-        _usersList = new()
-        {
-            new("Admin", "Root", "Admin"),
-            new("User", "Root", "User")
-        };
+        _usersService = usersService;
     }
-    public LoginAuthenticationResponse? GenerateJwtToken(
+    public async Task<LoginAuthenticationResponse?> GenerateJwtTokenAsync(
         LoginAuthenticationRequest request)
     {
         if (string.IsNullOrWhiteSpace(value: request.Username) |
             string.IsNullOrWhiteSpace(value: request.Password))
             return default;
 
-        User? user = _usersList.FirstOrDefault(user =>
+        UserEntity? user = await _usersService.GetAsync(predicate: user =>
             user.Username == request.Username &&
             user.Password == request.Password);
 

@@ -15,8 +15,14 @@ void RegisterServices(IServiceCollection services)
 
     services.AddConfigurationFrom(path: "appsettings.json");
 
+    // Setting DBContext
+    services.AddDatabaseConfiguration(configuration: builder.Configuration);
+
     // .NET Native DI Abstraction
     services.AddServices();
+
+    // MediatR
+    services.AddMediatRConfiguration();
 
     services.AddControllers();
 }

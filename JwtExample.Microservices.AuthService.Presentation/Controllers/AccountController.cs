@@ -16,7 +16,7 @@ public class AccountController : ControllerBase
 	public ActionResult<LoginAuthenticationResponse?> Authenticate(
 		[FromBody] LoginAuthenticationRequest authenticationRequest)
 	{
-		var response = _jwtTokenHandler.GenerateJwtToken(authenticationRequest);
+		var response = _jwtTokenHandler.GenerateJwtTokenAsync(authenticationRequest);
 
 		return response is null ? Unauthorized() : response;
 	}

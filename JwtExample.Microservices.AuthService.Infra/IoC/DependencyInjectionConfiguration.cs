@@ -7,5 +7,9 @@ public static class DependencyInjectionConfiguration
         ArgumentNullException.ThrowIfNull(argument: services, paramName: nameof(services));
 
         services.AddSingleton<JwtTokenHandler>();
+
+        services.AddScoped<IGenericRepository<UserEntity>, GenericRepository<UserEntity>>();
+
+        services.AddScoped<IUsersService, UsersService>();
     }
 }

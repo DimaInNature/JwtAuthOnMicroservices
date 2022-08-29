@@ -1,7 +1,10 @@
-﻿global using JwtExample.Microservices.AuthService.Domain.Core.Models;
-global using JwtExample.Microservices.AuthService.Domain.Core.Models.Configuration;
+﻿global using JwtExample.Microservices.AuthService.Domain.Core.Models.Configuration;
 global using JwtExample.Microservices.AuthService.Domain.Core.Models.Requests;
 global using JwtExample.Microservices.AuthService.Domain.Core.Models.Responses;
+global using JwtExample.Microservices.AuthService.Domain.Interfaces;
+global using JwtExample.Microservices.AuthService.Persistence.Entities;
+global using JwtExample.Shared.Persistence.Interfaces;
+global using MediatR;
 global using Microsoft.Extensions.Options;
 global using Microsoft.IdentityModel.Tokens;
 global using System.IdentityModel.Tokens.Jwt;

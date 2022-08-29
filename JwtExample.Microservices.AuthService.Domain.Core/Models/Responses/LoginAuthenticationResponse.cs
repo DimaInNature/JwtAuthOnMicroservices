@@ -4,17 +4,17 @@ public record LoginAuthenticationResponse
 {
     public string? SecurityToken { get; set; }
 
-    public User? User { get; set; }
+    public UserEntity? User { get; set; }
 
     public int? ExpiredIn { get; set; }
 
-    public LoginAuthenticationResponse(User user, string token, int expired) =>
+    public LoginAuthenticationResponse(UserEntity user, string token, int expired) =>
         (User, SecurityToken, ExpiredIn) = (user, token, expired);
 
     public LoginAuthenticationResponse() { }
 
     public void Deconstruct(
         out string? securityToken,
-        out User? user) =>
+        out UserEntity? user) =>
         (securityToken, user) = (SecurityToken, User);
 }

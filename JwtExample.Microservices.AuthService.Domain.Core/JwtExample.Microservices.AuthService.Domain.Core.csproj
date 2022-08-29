@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JwtExample.Microservices.AuthService.Persistence\JwtExample.Microservices.AuthService.Persistence.csproj" />
+    <ProjectReference Include="..\JwtExample.Microservices.UserService.Persistence\JwtExample.Microservices.UserService.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
